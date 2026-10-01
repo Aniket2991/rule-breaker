@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Rule Breaker</title>
+<meta name="theme-color" content="#0b1020">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <section id="home" class="screen active">
+    <div class="logo">RULE<span>BREAKER</span></div>
+    <p class="tagline">Follow the rule. Then survive when it changes.</p>
+    <div class="orb orb-a"></div><div class="orb orb-b"></div>
+    <button id="playBtn" class="primary">PLAY <span>→</span></button>
+    <div class="mini">FAST • SIMPLE • ADDICTIVE</div>
+  </section>
+  <section id="game" class="screen">
+    <header class="hud">
+      <div><small>SCORE</small><strong id="score">0</strong></div>
+      <div class="rule-wrap"><small>RULE</small><strong id="ruleNo">1/10</strong></div>
+      <div class="lives" id="lives">♥ ♥ ♥</div>
+    </header>
+    <div class="rule-card">
+      <small id="ruleLabel">CURRENT RULE</small>
+      <h1 id="ruleText">TAP BLUE</h1>
+      <div class="timer"><i id="timerBar"></i></div>
+    </div>
+    <div id="arena" class="arena" aria-label="game arena"></div>
+    <div class="hint">Tap the correct shape</div>
+  </section>
+  <section id="over" class="screen">
+    <div class="over-icon">✦</div>
+    <h1>GAME OVER</h1>
+    <p>You broke the rule.</p>
+    <div class="result"><span>SCORE</span><strong id="finalScore">0</strong><span>BEST</span><strong id="bestScore">0</strong></div>
+    <button id="againBtn" class="primary">PLAY AGAIN <span>↻</span></button>
+    <button id="homeBtn" class="secondary">HOME</button>
+  </section>
+</main>
+<script src="game.js"></script>
+</body>
+</html>
