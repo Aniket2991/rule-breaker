@@ -137,14 +137,12 @@ function makeShapes(rule) {
   const count = Math.min(9, 5 + Math.floor(round / 3));
   const targetIndex = rule.type === "avoid" ? -1 : Math.floor(Math.random() * count);
   const used = [];
-  const sizes = [];
-
   for (let i = 0; i < count; i++) {
     const el = document.createElement("div");
     el.className = "shape";
 
     let color = colors[Math.floor(Math.random() * colors.length)];
-    let shape = shapes[Math.floor(Math.random() * shapes.length)];
+    let shape = rule.type === "size" ? shapes[Math.floor(Math.random() * 2)] : shapes[Math.floor(Math.random() * shapes.length)];
     let size = 52 + Math.random() * 26;
 
     if (rule.type === "color" && i === targetIndex) color = rule.value;
@@ -165,8 +163,6 @@ function makeShapes(rule) {
     }
 
     used.push(color);
-    sizes.push(size);
-
     el.classList.add(color, shape);
     if (shape === "triangle") {
       el.style.borderBottomColor = colorHex[color];
