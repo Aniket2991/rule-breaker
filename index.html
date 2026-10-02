@@ -2,39 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Rule Breaker</title>
-<meta name="theme-color" content="#0b1020">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#070912">
+<meta name="description" content="Rule Breaker — a fast reaction game. Follow the rule before time runs out.">
+<title>Rule Breaker — Reaction Game</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="app">
+  <div class="bg-grid"></div>
+  <div id="flash" class="flash"></div>
+
   <section id="home" class="screen active">
+    <div class="brand-kicker">A 60-SECOND REACTION CHALLENGE</div>
     <div class="logo">RULE<span>BREAKER</span></div>
-    <p class="tagline">Follow the rule. Then survive when it changes.</p>
-    <div class="orb orb-a"></div><div class="orb orb-b"></div>
-    <button id="playBtn" class="primary">PLAY <span>→</span></button>
-    <div class="mini">FAST • SIMPLE • ADDICTIVE</div>
+    <p class="tagline">Read the rule. Find the target. <b>Don't blink.</b></p>
+
+    <div class="feature-row">
+      <div><strong>⚡</strong><span>FAST</span></div>
+      <div><strong>🎯</strong><span>SKILL</span></div>
+      <div><strong>🔥</strong><span>COMBO</span></div>
+    </div>
+
+    <button id="playBtn" class="primary pulse">PLAY NOW <span>→</span></button>
+    <div class="best-home">BEST SCORE <b id="homeBest">0</b></div>
+    <div class="mini">NO DOWNLOAD • NO LOGIN • JUST PLAY</div>
   </section>
+
   <section id="game" class="screen">
     <header class="hud">
-      <div><small>SCORE</small><strong id="score">0</strong></div>
-      <div class="rule-wrap"><small>RULE</small><strong id="ruleNo">1/10</strong></div>
-      <div class="lives" id="lives">♥ ♥ ♥</div>
+      <div class="stat"><small>SCORE</small><strong id="score">0</strong></div>
+      <div class="stat center"><small>STREAK</small><strong id="streak">0</strong></div>
+      <div class="stat right"><small>LIVES</small><strong id="lives">♥ ♥ ♥</strong></div>
     </header>
-    <div class="rule-card">
-      <small id="ruleLabel">CURRENT RULE</small>
+
+    <div class="progress-meta">
+      <span id="roundText">ROUND 1</span>
+      <span id="speedText">READY</span>
+    </div>
+
+    <div id="ruleCard" class="rule-card">
+      <div class="rule-badge">CURRENT RULE</div>
       <h1 id="ruleText">TAP BLUE</h1>
       <div class="timer"><i id="timerBar"></i></div>
     </div>
-    <div id="arena" class="arena" aria-label="game arena"></div>
-    <div class="hint">Tap the correct shape</div>
+
+    <div id="arena" class="arena" aria-label="Tap the correct shape">
+      <div id="arenaGlow" class="arena-glow"></div>
+      <div id="toast" class="toast"></div>
+    </div>
+
+    <div class="hint"><span>✦</span> TAP THE CORRECT TARGET <span>✦</span></div>
   </section>
+
   <section id="over" class="screen">
+    <div id="newBest" class="new-best">NEW BEST!</div>
     <div class="over-icon">✦</div>
+    <div class="over-kicker">RUN COMPLETE</div>
     <h1>GAME OVER</h1>
-    <p>You broke the rule.</p>
-    <div class="result"><span>SCORE</span><strong id="finalScore">0</strong><span>BEST</span><strong id="bestScore">0</strong></div>
+    <p id="overMessage">You broke the rule.</p>
+
+    <div class="result">
+      <div><span>SCORE</span><strong id="finalScore">0</strong></div>
+      <div><span>BEST</span><strong id="bestScore">0</strong></div>
+      <div><span>STREAK</span><strong id="finalStreak">0</strong></div>
+      <div><span>ROUNDS</span><strong id="finalRound">0</strong></div>
+    </div>
+
     <button id="againBtn" class="primary">PLAY AGAIN <span>↻</span></button>
     <button id="homeBtn" class="secondary">HOME</button>
   </section>
